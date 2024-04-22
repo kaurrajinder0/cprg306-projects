@@ -1,13 +1,13 @@
 import InputShortener from "./InputShortener";
-import MainLayout from "./MainLayout";
+import LinkResult from "./LinkResult";
 
-function App(){
+function App() {
   return (
-    <div className="">
-     <InputShortener/>
-     <MainLayout/>
+    <div className="flex flex-col items-center justify-start space-y-4 bg-cyan w-full min-h-screen">
+      <InputShortener/>
+      <LinkResult/>
     </div>
-  )
+  );
 }
 
 export default App;
