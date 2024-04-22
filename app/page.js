@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { useState } from "react";
 import InputShortener from "./InputShortener";
 import LinkResult from "./LinkResult";

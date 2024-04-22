@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 
+
 const InputShortener = ({setInputValue}) => {
 
     const [value, setValue] = useState("");
