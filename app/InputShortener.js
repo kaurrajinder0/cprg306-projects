@@ -2,7 +2,14 @@
 import React, { useState } from 'react';
 
 
-const InputShortener = () => {
+const InputShortener = ({setInputValue}) => {
+
+    const [value, setValue] = useState("");
+const handleClick =() =>{
+    setInputValue(value);
+    setValue("");
+}
+
     return (
         <div className="bg-blue-100 flex items-center justify-center p-4 w-full max-w-md mx-auto rounded-lg shadow-md mt-10">
             <div>
@@ -14,10 +21,12 @@ const InputShortener = () => {
                         type="text" 
                         placeholder="Enter your URL here" 
                         className="flex-grow p-2 border rounded border-gray-300 focus:outline-none focus:border-purple-500 transition-colors"
+                        value={value}
+                        onChange={e =>setValue(e.target.value)}
+
                     />
-                    <button 
-                        className="ml-4 px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors"
-                    >
+                    <button onClick={handleClick}
+                        className="ml-4 px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-colors">
                         Shorten
                     </button>
                 </div>

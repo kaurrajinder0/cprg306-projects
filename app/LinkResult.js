@@ -1,10 +1,12 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const LinkResult = () => {
+const LinkResult = ({inputValue}) => {
+    console.log(inputValue);
     const [ShortenLink, setShortenLink] = useState("Hello World");
     const [copied, setCopied] = useState(false);
+
 
     return (
         <div className='result flex flex-col items-center justify-center p-4 w-full max-w-md mx-auto'>
