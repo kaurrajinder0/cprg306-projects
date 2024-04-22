@@ -1,14 +1,13 @@
 import React from 'react';
-import BackgroundAnimate from './Backgroundanimate';  // Adjust the path as necessary
+import InputShortener from './InputShortener';
+import AnimatedBackground from './Backgroundanimate';
 
 function MainLayout() {
   return (
-    <div className="relative min-h-screen">
-      <div className="absolute inset-0 z-0">
-        <BackgroundAnimate />
-      </div>
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
-        {/* You can add more components here as needed */}
+    <div className="flex flex-col justify-center items-center h-screen relative">
+      <AnimatedBackground />
+      <div className="z-10 p-4 bg-white bg-opacity-50 rounded-lg shadow">
+        <InputShortener />
       </div>
     </div>
   );
