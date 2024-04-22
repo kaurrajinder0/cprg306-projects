@@ -1,5 +1,6 @@
 const InputShortener = () => {
     return (
+        <div className="min-h-screen bg-blue-100 flex items-center justify-center">
         <div className="inputContainer p-4 max-w-md mx-auto bg-white rounded-lg shadow-md mt-10">
             <h1 className="text-3xl font-bold text-center text-gray-800 mb-4">
                 URL <span className="text-purple-500">Shortener</span>
@@ -18,6 +19,7 @@ const InputShortener = () => {
                 </button>
             </div>
         </div>
+    </div>
     )
 }
 

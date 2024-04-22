@@ -1,9 +1,11 @@
 import InputShortener from "./InputShortener";
+import MainLayout from "./MainLayout";
 
 function App(){
   return (
-    <div className="App">
+    <div className="">
      <InputShortener/>
+     <MainLayout/>
     </div>
   )
 }
