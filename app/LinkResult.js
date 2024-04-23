@@ -1,5 +1,5 @@
 "use client";
-
+import axios from "axios";
 import { useEffect, useState } from "react"
 import CopyToClipboard from "react-copy-to-clipboard";
 
@@ -12,32 +12,35 @@ const LinkResult = ({ inputValue }) => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://api-ssl.bitly.com/v4/shorten', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_REACT_APP_BITLY_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          long_url: inputValue,
-          domain: 'bit.ly',
-          group_guid: `${process.env.NEXT_PUBLIC_REACT_APP_GUID}`,
-        }),
-      });
-      const data = await response.json();
-      setShortenLink(data.link);
+      const res = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`);
+      setShortenLink(res.data.result.full_short_link);
     } catch(err) {
       setError(err);
     } finally {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     if(inputValue.length) {
       fetchData();
     }
   }, [inputValue]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  if(loading) {
+    return <p className="noData">Loading...</p>
+  }
+  if(error) {
+    return <p className="noData">Something went wrong :(</p>
+  }
+
 
   return (
     <div className="h-20">

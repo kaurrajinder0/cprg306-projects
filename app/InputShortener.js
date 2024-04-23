@@ -1,16 +1,13 @@
 "use client"
 import React, { useState } from 'react';
-
-
-
 const InputShortener = ({setInputValue}) => {
-
     const [value, setValue] = useState("");
-const handleClick =() =>{
-    setInputValue(value);
-    setValue("");
-}
 
+    const handleClick = () => {
+        setInputValue(value);
+        setValue("");
+      }
+    
     return (
         <div className="bg-blue-100 flex items-center justify-center p-4 w-full max-w-md mx-auto rounded-lg shadow-md mt-10">
             <div>
@@ -35,6 +32,5 @@ const handleClick =() =>{
         </div>
     )
 }
-
 
 export default InputShortener;
